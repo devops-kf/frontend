@@ -11,18 +11,6 @@ export const Routes = {
     REGISTER: '/register',
 }
 
-function PrivateRoute({component, ...rest}) {
-    const isAuth = useSelector((state) => !!state.authentication.user)
-
-    return (
-        <Route {...rest} render={props =>
-            isAuth ? (component) :
-                (<Redirect to={Routes.LOGIN}/>)
-        }
-        />
-    )
-}
-
 export const RouterConfig = () => {
     const isAuth = useSelector((state) => !!state.authentication.user)
 
