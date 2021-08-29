@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "14.15.4"
+install:
+  - npm install
+cache:
+  directories:
+    - node_modules
+script:
+  - npm test
+  - npm run build
+
+branches:
+  only:
+    - main
+    - development
