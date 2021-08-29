@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - "14.15.4"
+install:
+  - npm install
+cache:
+  directories:
+    - node_modules
+addons:
+  sonarcloud:
+    organization: "devops-kf"
+    token:
+      secure: "X7e3sL1GsuhdSTrd307/U8rlIDa7aYrAKyU5znMHuo9F+nDRebLySvFcXO0Ecrkny1JZ/U/nshjr/Yz3L2CaVHQXNyk0eo3HBzp8Y5KI7pYJ6mvZYF372nCBlOhd4P9ZFGq5gXR11ozsNUStifo6tmFW6zqXYQPaOmHaSm9djxkTZk8DmgrxUksTZXHrF6BG4ZeYKG5p4Vpl2wp8ad8O8bRTP28lA6p69ITSgRAj041RoN/9GqqaZkqxHvaIqmu36+8H+9Ci/iByl/YGKtbFzMYthEJnEuHrfoHK+qF+EIFcJapMHY4mBgKYi0JFSlH04KEG4q8Udm0qnvsW7+AhoK9GAHt7c/frDlc65BZc3eqNjsf/1FyzVLuInOylFx+Qn5/z8MgneqOvJs8SL0qtJwVT0gxGsonrh+KIUhiuMuBxgnVWuG9LDIj/vfB0XWCBPsbnAGR9aHtu/3QfR8W4IRVsvPo5bqSWT/xJIMIrU+QgYIlLZqZSkXyybD/kx2K3e9rRi4dV0VEl6rnwTSb06VG4DE1UFdBUxs0GKRMsIfsrkstvRv5ZiaoeHxoDq7wYwTC8SNBpKzKfruY2hWEYQGsFmgsUrgIVUqipC1ndbGIChFvEClOrrxRKnD1jwn7cVqTTtp6Ldxz/HX0pQX562bx4RyPYAEapIu8nRS6GSP8="
+
+script:
+  - npm test
+  - npm run build
+  - sonar-scanner
+
+branches:
+  only:
+    - main
+    - development
