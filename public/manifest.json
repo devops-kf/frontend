@@ -5,7 +5,7 @@
   "icons": [
     {
       "src": "inst.png",
-      "sizes": "150x150",
+      "sizes": "64x64",
       "type": "image/png"
     }
   ],

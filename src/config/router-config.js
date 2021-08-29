@@ -4,6 +4,7 @@ import RegisterComponent from "../components/auth/register.component";
 import React, {useEffect} from "react";
 import {useSelector} from "react-redux";
 import LocalStorageService from "../services/local-storage.service";
+import Header from "../components/header/header.component";
 
 export const Routes = {
     HOME: '/',
@@ -24,10 +25,13 @@ export const RouterConfig = () => {
 
     return (
         <>
+            {isAuth && <Header/>}
             <div style={{maxWidth: '65%', margin: '0 auto'}}>
                 <Switch>
                     <Route path={Routes.LOGIN} component={LoginComponent}/>
                     <Route path={Routes.REGISTER} component={RegisterComponent}/>
+                    <Route path={Routes.HOME} component={LoginComponent} exact>
+                    </Route>
                     <Redirect to="/"/>
                 </Switch>
             </div>
