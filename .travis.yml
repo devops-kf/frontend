@@ -6,9 +6,15 @@ install:
 cache:
   directories:
     - node_modules
+addons:
+  sonarcloud:
+    organization: "devops-kf"
+    token:
+      secure: "PUeev9c8O0gd2mA3OnKPAT8U7uRxIp4C2N3IzIMYY/da6kP3qHtkNEJ1fLhEmudfHXVJxmOOLs4Jz6ceu+SeFZWHLLF1UT/a9JL7e0nYMoPH0ffNl/tDvSNk6JDPB+DSMPa/Wjf04ByDw963hHxS+aN5YDhjsvWtYJBHG/+/SMnq7zwaMZV9JbNGQPC/a8zS6gYDac0SiHP6GE2Ycd4Yc9a1JLgJT5LxFEE6Ked/fiTtBQ031APK9RPRsPhuTP3UvWheT4oM5nYY+K68CVQbStVL04kaM6LquEq8sVck+j8n+TOWNJZ/kKd8Y10ebYeJFEV7jw3ag6otqAtEtcXTd4ptcmlmdz9qnoOrzTfMqDVTc9qJ6y+Baynfc1ehJ9bwV3cCeGhS/fXlo6PCv6uzXmfFF1N4s7EauqilCFmUQVqJ6C+pGOKNmPfPleiAI4URO7YT4Ear0UO3t8T/j+zCNQ9ABjKlg1NgJmn2Vj9ZnTzKWhdVfxoLOUx3TZRN+YNaqgn2RayPBcO7geW82Ug/Aj/H3682v3CxW7Dttp+MfhSOzwtci0ahqULcO2M5JKyHLVKqK+1poEFfuVoHNN5a2wn1u8cTRcPprw04pMdBGmzZsb9YMUexRqIZwTh/WHMBVMv+D3ledYUkExkvn9umUigJ4zhtWkXpSX8V0Cff/VQ="
 script:
   - npm test
   - npm run build
+  - sonar-scanner
 
 branches:
   only:
