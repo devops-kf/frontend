@@ -6,8 +6,13 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import AddIcon from '@material-ui/icons/Add';
-import {Popover} from "@material-ui/core";
+import {Menu, MenuItem, Popover} from "@material-ui/core";
 import CreatePostFormComponent from "../post/create-post-form.component";
+import Divider from "@material-ui/core/Divider";
+import LocalStorageService from "../../services/local-storage.service";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import {removeUser} from "../../store/authSlice";
+import {useDispatch} from "react-redux";
 
 const useStyles = makeStyles(theme =>
     createStyles({
@@ -26,9 +31,18 @@ const useStyles = makeStyles(theme =>
 );
 
 const Header = () => {
+    const dispatch = useDispatch();
     const classes = useStyles();
-
+    const [anchorEl, setAnchorEl] = useState(null);
     const [addPostAnchor, setAddPostAnchor] = useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     const handleAddPostClick = (event) => {
         setAddPostAnchor(event.currentTarget);
@@ -37,6 +51,12 @@ const Header = () => {
     const handleAddPostClose = () => {
         setAddPostAnchor(null);
     };
+
+    const handleLogout = () => {
+        LocalStorageService.removeLocalStorageItem('access_token');
+        dispatch(removeUser());
+        handleClose();
+    }
 
     return (
         <div className={classes.root}>
@@ -50,6 +70,22 @@ const Header = () => {
                             <AddIcon/>
                         </IconButton>
 
+                        <IconButton color='primary' aria-controls="simple-menu" aria-haspopup="true"
+                                    onClick={handleClick}>
+                            <AccountCircleIcon/>
+                        </IconButton>
+                        <Menu
+                            id="simple-menu"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                        >
+                            <MenuItem component={Link} to='/profile' onClick={handleClose}>Profile</MenuItem>
+                            <MenuItem component={Link} to='/profile/edit' onClick={handleClose}>Edit profile</MenuItem>
+                            <Divider/>
+                            <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                        </Menu>
                     </div>
                 </Toolbar>
             </AppBar>
