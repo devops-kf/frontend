@@ -2,10 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
-import temp1 from '../../images/temp1.jpg';
-import temp2 from '../../images/temp2.jpg';
-import temp3 from '../../images/temp3.jpg';
-import temp4 from '../../images/temp4.jpg';
 import PostDialogComponent from "../post/post-dialog.component";
 import {Box, CircularProgress} from "@material-ui/core";
 
@@ -31,28 +27,28 @@ const useStyles = makeStyles(() => ({
 
 const itemData = [
     {
-        img: temp1,
+        img: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
         title: 'Image1',
         author: 'author1',
         cols: 1,
         id: '1'
     },
     {
-        img: temp2,
+        img: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
         title: 'Image2',
         author: 'author2',
         cols: 1,
         id: '2'
     },
     {
-        img: temp3,
+        img: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
         title: 'Image3',
         author: 'author3',
         cols: 1,
         id: '3'
     },
     {
-        img: temp4,
+        img: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
         title: 'Image4',
         author: 'author4',
         cols: 1,

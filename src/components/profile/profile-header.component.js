@@ -4,7 +4,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import erik from '../../images/erik.jpg';
 import SettingsIcon from '@material-ui/icons/Settings';
 import Button from "@material-ui/core/Button";
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
@@ -47,7 +46,7 @@ export default function ProfileHeaderComponent() {
         <Card className={classes.root} elevation={0}>
             <CardMedia
                 className={classes.cover}
-                image={erik}
+                image={'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg'}
             />
             <div className={classes.details}>
                 <CardContent className={classes.content}>
