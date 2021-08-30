@@ -67,7 +67,7 @@ export default function FollowRequestsDialog({isOpen, handleClose, ...rest}) {
                             <ListItem key={index}>
                                 <ListItemAvatar>
                                     <Avatar style={{border: '2px solid black'}}
-                                            src="http://www.mandysam.com/img/random.jpg"/>
+                                            src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"/>
                                 </ListItemAvatar>
                                 <ListItemText primary="Username"/>
                                 <div>
